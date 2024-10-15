@@ -16,10 +16,10 @@ Este projeto é uma implementação de um servidor gRPC em Go que publica mensag
 go-rabbitmq-grpc/
 │
 ├── grpc-client/            # Cliente gRPC
-│   └── main.go             # Código do cliente
+│   └── client.go             # Código do cliente
 │
 ├── grpc-server/            # Servidor gRPC
-│   ├── main.go             # Código do servidor
+│   ├── server.go             # Código do servidor
 │   └── publisher/          # Código do publicador RabbitMQ
 │       └── publisher.go
 │
@@ -63,7 +63,7 @@ Abra um terminal e navegue até a pasta do servidor, depois execute:
 
 ```bash
 cd grpc-server
-go run main.go
+go run server.go
 ```
 
 ### 5. Executar o Cliente gRPC
@@ -72,7 +72,7 @@ Em outro terminal, navegue até a pasta do cliente e execute:
 
 ```bash
 cd grpc-client
-go run main.go
+go run client.go
 ```
 
 ## Como Funciona
