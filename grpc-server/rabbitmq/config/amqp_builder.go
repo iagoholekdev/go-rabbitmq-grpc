@@ -34,7 +34,7 @@ func CreateChannel() (*amqp.Channel, error) {
 
 func CreateQueue() {
 	if channel == nil {
-		fmt.Errorf("no RabbitMQ channel available")
+		fmt.Println("no RabbitMQ channel available")
 	}
 
 	queue, err := channel.QueueDeclare(
