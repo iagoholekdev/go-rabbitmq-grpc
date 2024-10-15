@@ -1,0 +1,31 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Build directory
+/bin/
+/obj/
+
+# Go workspace files
+*.test
+*.out
+
+# Go module files
+/vendor/
+
+# Go generated files
+*.proto
+
+# IDE specific files
+*.idea/
+*.vs/
+*.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
