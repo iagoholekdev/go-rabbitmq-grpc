@@ -1,4 +1,3 @@
-// grpc-server/main.go
 package main
 
 import (
@@ -6,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/iagoholekdev/go-rabbitmq-grpc/grpc-server/publisher" // Ajuste o caminho conforme necessário
+	pb "github.com/iagoholekdev/go-rabbitmq-grpc/grpc-server/publisher"
 	"github.com/streadway/amqp"
 	"google.golang.org/grpc"
 )
@@ -17,7 +16,6 @@ type server struct {
 	channel    *amqp.Channel
 }
 
-// Método para inicializar a conexão com o RabbitMQ
 func (s *server) initRabbitMQ() error {
 	var err error
 	s.connection, err = amqp.Dial("amqp://guest:guest@localhost:5672/")
@@ -33,11 +31,10 @@ func (s *server) initRabbitMQ() error {
 	return nil
 }
 
-// Método que publica mensagens no RabbitMQ
 func (s *server) PublishMessage(ctx context.Context, req *pb.PublishRequest) (*pb.PublishResponse, error) {
 	err := s.channel.Publish(
 		"",
-		"QueueIago", // Nome da fila
+		"QueueIago",
 		false,
 		false,
 		amqp.Publishing{
@@ -52,7 +49,6 @@ func (s *server) PublishMessage(ctx context.Context, req *pb.PublishRequest) (*p
 }
 
 func main() {
-	// Inicializa a conexão com o RabbitMQ
 	s := &server{}
 	if err := s.initRabbitMQ(); err != nil {
 		log.Fatalf("Failed to connect to RabbitMQ: %v", err)
